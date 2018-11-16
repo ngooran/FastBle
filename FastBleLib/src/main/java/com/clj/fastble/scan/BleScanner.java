@@ -77,11 +77,11 @@ public class BleScanner {
                     if (callback != null) {
                         callback.onScanFinished(bleDeviceList.get(0));
                     }
-                    final List<BleDevice> list = bleDeviceList;
+                    final BleDevice device = bleDeviceList.get(0);
                     new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
                         @Override
                         public void run() {
-                            BleManager.getInstance().connect(list.get(0), callback);
+                            BleManager.getInstance().connect(device, callback);
                         }
                     }, 100);
                 }
